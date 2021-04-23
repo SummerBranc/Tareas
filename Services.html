@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilo.css" />
+
+    <title>CHRYSLER</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+          <img src="imagenes/logo.png" alt="" class="logo" />
+          <button
+            class="navbar-toggler bg-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-lg-end p-3"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >INICIO</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Chrysler.html">CHRYSLER</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="AutoBaic.html">AUTOS BAIC</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="FawCamiones.html">FAW CAMIONES </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Services.html">SERVICIOS </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <form action="formulario.php" method="POST">
+      <h1>SOLICITE UN SERVICIO</h1>
+      <label for="nombre">Nombre y Apellido:</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Requerido"
+        required
+      />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Requerido"
+        required
+        onchange="handleEmail()"
+      />
+
+      <label for="telefono">Teléfono</label>
+      <input type="tel" name="Telefono" id="telefono" />
+
+      <label for="fecha">Fecha del servicio:</label>
+      <input type="date" name="Fecha del servicio" id="fecha" required />
+
+      <label for="hora">Hora preferida:</label>
+      <input type="time" name="Hora del Seervicio" id="hora" />
+
+      <label for="tipo_de_servicio">Tipo de servicio</label>
+      <select name="tipo_de_servicio" id="ttipo_de_servicio">
+        <option value="Lavado">Lavado</option>
+        <option value="Engrase">Engrase</option>
+      </select>
+
+      <label for="tipo_de_vehiculo">Tipo de vehículo</label>
+      <select name="tipo_de_vehiculo" id="ttipo_de_vehiculo">
+        <option value="Automóvil">Automóvil</option>
+        <option value="Pickup">Pickup</option>
+      </select>
+
+      <label for="body">Comentario:</label>
+      <textarea name="body" id="body" cols="30" rows="10"></textarea>
+
+      <button type="submit">Solicitar Servicio</button>
+      <input
+        type="hidden"
+        name="_subject"
+        value="NUEVO SERVICIO DESDE LA PÁGINA WEB !"
+      />
+      <input type="hidden" name="_template" value="box" />
+      <input type="hidden" name="_cc" value="" id="_cc" />
+    </form>
+
+    <footer class="container-fluid bg-dark p-3">
+      <div class="row">
+        <div class="col-12 text-white text-center">
+          <p class=""></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Necesario
+      function handleEmail() {
+        if (!event.target.value) return;
+        const cc = document.getElementById("_cc");
+        cc.value = event.target.value;
+      }
+    </script>
+  </body>
+</html>
